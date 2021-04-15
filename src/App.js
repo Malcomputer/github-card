@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import GithubCard from "./components/GithubCard";
 import './App.css';
+import {FormControl, InputGroup} from "react-bootstrap";
+import {useState} from "react";
 
 function App() {
+  const [username, setUsername] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <InputGroup className="ml-3 mt-3 mr-3 mb-1 ">
+          <FormControl
+            placeholder="Username"
+            aria-label="Username"
+            onChange={event => setUsername(event.target.value)}
+          />
+        </InputGroup>
+        <GithubCard username={username}/>
+      </div>
     </div>
   );
 }
